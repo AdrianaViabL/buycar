@@ -1,14 +1,12 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config.from_pyfile('config.py')
 
+db = SQLAlchemy(app)
 
-@app.route('/')
-def hello():
-    return 'Hello, World!'
-
+from views import *
 
 if __name__ == '__main__':
-    # run() method of Flask class runs the application
-    # on the local development server.
-    app.run()
+    app.run(debug=True)

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST">
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Title</th>
+        <th>Location</th>
+        <th>Translation</th>
+        <th>Content</th>
+        <th>selection</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in table %}
+        <tr>
+          <td>{{ row[0] }}</td>
+          <td><input type="hidden" name="title" value="{{ row[1] }}"> {{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>{{ row[4] }}</td>
+          <td>
+            <input class="form__submit form__input" type="submit" value="select" name="select_song"/>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+</form>
+
+</body>
+</html>
